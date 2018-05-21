@@ -2,6 +2,7 @@
 ### Compile:
 You should install [gcc](https://gcc.gnu.org/) first.
 For windows, click [here](http://www.mingw-w64.org/).
+On posix system, run:
 
     chmod +x build.sh
     ./build.sh
