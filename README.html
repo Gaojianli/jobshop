@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h2 class="mume-header" id="a-jobshop-scheduling-using-genetic-algorithm">A JobShop scheduling using Genetic Algorithm</h2>
+
+<h3 class="mume-header" id="compile">Compile:</h3>
+
+<pre class="language-text">chmod +x build.sh
+.&#x2F;build.sh
+</pre>
+<h3 class="mume-header" id="usage">Usage:</h3>
+
+<p>This program can read configuration from the config file or the keyboard, determineded by the &quot;-C&quot; argument.</p>
+<pre data-role="codeBlock" data-info="" class="language-"><code>Usage:
+(optional)-f &lt;data_filepath&gt;    read data from the file
+(optional)-C &lt;configFilePath&gt;   read options from the config file
+OR:
+-g &lt;int&gt;        the gap of the population
+-m &lt;double&gt;     reproductive ratio,the number of units which can reproduce is &lt;ALL&gt;/&lt;this_ratio&gt;
+-i &lt;int&gt;        the number of initial population
+-p &lt;int&gt;        the max number of a population
+-d &lt;double&gt;     dead ratio, in each generation,the new number of population is &lt;number_of_old&gt;*1/&lt;this ratio&gt;
+-c &lt;double&gt;     mutational ratio, the number of mutational units is &lt;ALL&gt;/&lt;this_ratio&gt;
+-h              show this help
+</code></pre><h3 class="mume-header" id="example">Example:</h3>
+
+<pre class="language-text">gaojianli @ localhost:~$ bash build.sh
+</pre>
+<h4 class="mume-header" id="file-input">File input:</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>gaojianli @ localhost:~$./a.out -f 1.txt -C config.ini
+M1 (153,8-2,240) (240,7-3,286) (366,2-5,378) (417,5-2,461) (461,6-7,556) (556,1-7,609) (634,10-6,703) (703,4-8,796) (796,9-10,874) (880,3-9,963)
+M2 (0,4-1,87) (87,1-1,108) (108,8-1,153) (161,3-4,180) (286,7-4,377) (452,9-7,480) (480,2-7,522) (591,6-9,598) (640,5-6,689) (826,10-9,900)
+M3 (0,6-1,35) (35,3-2,99) (99,7-2,158) (158,2-2,189) (195,4-3,282) (282,9-2,319) (319,5-1,417) (417,10-3,511) (511,1-6,545) (545,8-9,584)
+M4 (0,3-1,34) (34,7-1,50) (50,6-2,126) (126,4-2,195) (240,8-3,281) (418,9-5,444) (607,10-5,634) (656,1-9,711) (862,5-9,879) (957,2-10,996)
+M5 (0,2-1,55) (55,9-1,88) (164,6-5,225) (281,8-4,301) (301,3-5,393) (511,10-4,607) (607,7-9,635) (635,1-8,656) (689,5-7,785) (873,4-10,933)
+M6 (126,6-3,154) (189,2-3,287) (385,9-4,418) (461,5-3,486) (486,8-8,495) (522,7-8,581) (796,4-9,873) (963,3-10,1000) (1000,10-10,1084) (1084,1-10,1179)
+M7 (108,1-2,179) (225,6-6,234) (301,8-5,355) (470,7-7,522) (522,5-4,597) (597,4-7,638) (638,9-8,727) (748,10-8,826) (826,3-8,880) (880,2-9,957)
+M8 (247,1-5,273) (282,4-4,320) (378,2-6,444) (444,9-6,452) (597,5-5,640) (640,3-7,683) (703,10-7,748) (748,7-10,775) (775,6-10,870) (870,8-10,941)
+M9 (0,10-1,69) (99,3-3,161) (195,1-4,247) (319,9-3,385) (385,4-5,409) (420,7-6,470) (470,8-7,484) (556,6-8,591) (591,2-8,668) (879,5-10,958)
+M10 (69,10-2,150) (154,6-4,164) (179,1-3,195) (287,2-4,366) (377,7-5,420) (420,8-6,463) (463,4-6,546) (546,3-6,625) (727,9-9,769) (785,5-8,862)
+830
+32.484375
+</code></pre><pre data-role="codeBlock" data-info="" class="language-"><code>gaojianli @ localhost:~$./a.out -f 1.txt -g 300 -m 1.75 -i 400 -p 800 -d 1.1 -c 1
+M1 (98,5-2,142) (142,8-2,229) (293,7-3,339) (452,1-7,505) (541,10-6,610) (610,2-5,622) (622,6-7,717) (717,3-9,800) (812,4-8,905) (943,9-10,1021)
+M2 (0,1-1,21) (21,8-1,66) (66,4-1,153) (261,3-4,280) (285,5-6,334) (339,7-4,430) (430,9-7,458) (752,6-9,759) (771,10-9,845) (845,2-7,887)
+M3 (0,5-1,98) (98,9-2,135) (135,3-2,199) (199,6-1,234) (234,7-2,293) (293,2-2,324) (324,10-3,418) (418,1-6,452) (452,4-3,539) (688,8-9,727)
+M4 (0,7-1,16) (16,3-1,50) (153,4-2,222) (234,6-2,310) (310,8-3,351) (371,9-5,397) (514,10-5,541) (596,1-9,651) (825,5-9,842) (1041,2-10,1080)
+M5 (0,9-1,33) (33,2-1,88) (280,3-5,372) (372,8-4,392) (418,10-4,514) (514,6-5,575) (575,1-8,596) (596,5-7,692) (752,7-9,780) (982,4-10,1042)
+M6 (142,5-3,167) (310,6-3,338) (338,9-4,371) (371,2-3,469) (679,8-8,688) (693,7-8,752) (752,1-10,847) (847,3-10,884) (905,4-9,982) (982,10-10,1066)
+M7 (21,1-2,92) (167,5-4,242) (392,8-5,446) (494,3-8,548) (575,6-6,584) (641,7-7,693) (693,10-8,771) (771,4-7,812) (812,9-8,901) (964,2-9,1041)
+M8 (242,5-5,285) (379,1-5,405) (405,9-6,413) (451,3-7,494) (539,4-4,577) (610,10-7,655) (655,2-6,721) (780,7-10,807) (807,6-10,902) (902,8-10,973)
+M9 (0,10-1,69) (199,3-3,261) (261,9-3,327) (327,1-4,379) (591,7-6,641) (641,4-5,665) (665,8-7,679) (717,6-8,752) (887,2-8,964) (964,5-10,1043)
+M10 (69,10-2,150) (150,1-3,166) (338,6-4,348) (372,3-6,451) (469,2-4,548) (548,7-5,591) (591,8-6,634) (665,4-6,748) (748,5-8,825) (901,9-9,943)
+807
+33.828125
+</code></pre><h4 class="mume-header" id="console-input">Console input:</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>gaojianli @ localhost:~$ ./a.out -g 300 -m 1.75 -i 400 -p 800 -d 1.1 -c 1
+10 10
+1 21 6 71 9 16 8 52 7 26 2 34 0 53 4 21 3 55 5 95
+4 55 2 31 5 98 9 79 0 12 7 66 1 42 8 77 6 77 3 39
+3 34 2 64 8 62 1 19 4 92 9 79 7 43 6 54 0 83 5 37
+1 87 3 69 2 87 7 38 8 24 9 83 6 41 0 93 5 77 4 60
+2 98 0 44 5 25 6 75 7 43 1 49 4 96 9 77 3 17 8 79
+2 35 3 76 5 28 9 10 4 61 6 9 0 95 8 35 1 7 7 95
+3 16 2 59 0 46 1 91 9 43 8 50 6 52 5 59 4 28 7 27
+1 45 0 87 3 41 4 20 6 54 9 43 8 14 5 9 2 39 7 71
+4 33 2 37 8 66 5 33 3 26 7 8 1 28 6 89 9 42 0 78
+8 69 9 81 2 94 4 96 3 27 0 69 7 45 6 78 1 74 5 84
+...
+</code></pre><pre data-role="codeBlock" data-info="" class="language-"><code>gaojianli @ localhost:~$./a.out -C config.ini
+10 10
+1 21 6 71 9 16 8 52 7 26 2 34 0 53 4 21 3 55 5 95
+4 55 2 31 5 98 9 79 0 12 7 66 1 42 8 77 6 77 3 39
+3 34 2 64 8 62 1 19 4 92 9 79 7 43 6 54 0 83 5 37
+1 87 3 69 2 87 7 38 8 24 9 83 6 41 0 93 5 77 4 60
+2 98 0 44 5 25 6 75 7 43 1 49 4 96 9 77 3 17 8 79
+2 35 3 76 5 28 9 10 4 61 6 9 0 95 8 35 1 7 7 95
+3 16 2 59 0 46 1 91 9 43 8 50 6 52 5 59 4 28 7 27
+1 45 0 87 3 41 4 20 6 54 9 43 8 14 5 9 2 39 7 71
+4 33 2 37 8 66 5 33 3 26 7 8 1 28 6 89 9 42 0 78
+8 69 9 81 2 94 4 96 3 27 0 69 7 45 6 78 1 74 5 84
+...
+</code></pre>
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+    
+    
+  </html>
