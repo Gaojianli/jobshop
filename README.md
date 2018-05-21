@@ -1,7 +1,7 @@
 ## A JobShop scheduling using Genetic Algorithm
 ### Compile:
 You should install [gcc](https://gcc.gnu.org/) first.
-For windows, chlick [here](http://www.mingw-w64.org/).
+For windows, click [here](http://www.mingw-w64.org/).
 
     chmod +x build.sh
     ./build.sh
