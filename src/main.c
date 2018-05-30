@@ -1,5 +1,14 @@
+/*
+@file:main.c 
+@author:Group All
+@version:1.4
+@date:21/5/18
+@description:
+    The main function, provide the interface to read arguments from console
+*/
 #include "../include/jobshop.h"
 #include <getopt.h>
+
 int main(int argc, char *argv[])
 {
     int opt;
@@ -7,8 +16,10 @@ int main(int argc, char *argv[])
     bool fileFlag = false;
     char *sourcePath;
     bool configFile = false;
+    bool outputFileFlag = false;
+    char *outputPath;
     FILE *config;
-    while ((opt = getopt(argc, argv, "f:C:g:m:i:p:d:c:h")) != -1)
+    while ((opt = getopt(argc, argv, "f:C:g:m:i:p:d:c:ho:")) != -1)
     {
         switch (opt)
         {
@@ -85,6 +96,11 @@ int main(int argc, char *argv[])
             }
             printUsage();
             exit(0);
+        case 'o':
+            outputFileFlag = true;
+            outputPath = (char *)malloc(sizeof(char) * strlen(optarg));
+            strcpy(outputPath, optarg);
+            break;
         default:
             printUsage();
             exit(-1);
@@ -114,13 +130,34 @@ int main(int argc, char *argv[])
     }
     double cost;
     clock_t begin, end;
+    FILE *fPtr;
+    if (outputFileFlag)
+        fPtr = fopen(outputPath, "w");
     begin = clock();
     init();
     generate();
-    output(length, out().sequence);
-    printf("%d\n", out().time);
+    gene finalSeq = out();
+    if (outputFileFlag)
+    {
+        outputFile(length, finalSeq.sequence, fPtr);
+    }
+    else
+    {
+        output(length, finalSeq.sequence);
+        printf("%d\n", finalSeq.time);
+    }
     end = clock();
     cost = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("%lf\n", cost);
+    if (outputFileFlag)
+    {
+        fprintf(fPtr, "Time Used: %.3lf\r\n", cost);
+        fprintf(fPtr, "Ended Time: %d\r\n", finalSeq.time);
+        fclose(fPtr);
+        printf("The result has been written to %s.\n", outputPath);
+    }
+    else{
+        printf("Time Used: %lf\n", cost);
+        printf("Ended Time: %d\n", finalSeq.time);
+    }
     return 0;
 }

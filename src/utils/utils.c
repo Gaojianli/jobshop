@@ -1,3 +1,12 @@
+/*
+@file:utils.c 
+@author:Group All
+@version:1.3
+@date:21/5/18
+@description:
+    Others, implements of utils
+*/
+
 #include "../../include/jobshop.h"
 void init()
 {
@@ -50,9 +59,128 @@ gene out()
     return pop[k];
 }
 
+void insert(int i, int j) {
+    int mac = jobs[i].mac[j];
+    int flag = 0;
+
+    int startTime, endTime;
+    int temp;
+    int l, tm;
+    tm = jobs[i].time[j];
+    int k;
+    for (k = 0; k < gapNum[mac]; k++) {
+        if (flag) break;
+        if (end[mac][k] - last[i] < tm) continue;
+        if (end[mac][k] - start[mac][k] < tm) continue;
+        flag = 1;
+
+        for (l = 0; l < onum[mac]; l++) {
+            if (blocks[mac][l].start >= end[mac][k]) break;
+        }
+
+        temp = l;
+
+        for (l = onum[mac]; l > temp; l--) {
+            blocks[mac][l].start = blocks[mac][l - 1].start;
+            blocks[mac][l].end = blocks[mac][l - 1].end;
+            blocks[mac][l].jobRec = blocks[mac][l - 1].jobRec;
+            blocks[mac][l].opeRec = blocks[mac][l - 1].opeRec;
+        }
+
+        if (last[i] >= start[mac][k]) {
+            startTime = last[i];
+            blocks[mac][temp].start = last[i];
+            blocks[mac][temp].end = last[i] + tm;
+            blocks[mac][temp].jobRec = i;
+            blocks[mac][temp].opeRec = j;
+        }
+        else {
+            startTime = start[mac][k];
+            blocks[mac][temp].start = startTime;
+            blocks[mac][temp].end = startTime + tm;
+            blocks[mac][temp].jobRec = i;
+            blocks[mac][temp].opeRec = j;
+        }
+        temp = end[mac][k];
+        end[mac][k] = startTime;
+        endTime = tm + startTime;
+
+        for (l = gapNum[mac]; l > k + 1; l--) {
+            start[mac][l] = start[mac][l - 1];
+            end[mac][l] = end[mac][l - 1];
+        }
+        start[mac][k + 1] = endTime;
+        end[mac][k + 1] = temp;
+        gapNum[mac]++; 
+        onum[mac]++;
+        last[i] = start[mac][k + 1];
+    }
+    if (!flag) {
+        if (lastTime[mac] < last[i]) {
+            blocks[mac][onum[mac]].start = last[i];
+            blocks[mac][onum[mac]].end = last[i] + tm;
+            blocks[mac][onum[mac]].jobRec = i;
+            blocks[mac][onum[mac]].opeRec = j;
+            onum[mac]++;
+            end[mac][gapNum[mac]] = last[i];
+            start[mac][gapNum[mac]] = lastTime[mac];
+            lastTime[mac] = last[i] + tm;
+            last[i] += tm;
+            gapNum[mac]++;
+            return;
+        }
+        blocks[mac][onum[mac]].start = lastTime[mac];
+        blocks[mac][onum[mac]].end = lastTime[mac] + tm;
+        blocks[mac][onum[mac]].jobRec = i;
+        blocks[mac][onum[mac]].opeRec = j;
+        onum[mac]++;
+        lastTime[mac] += tm;
+        last[i] = lastTime[mac];
+    }
+}
+
 void output(int n, int *seq)
 {
 
+    int i, j, k;
+    for (i = 0; i < MAX_NUM; i++)
+    {
+        gapNum[i] = 0;
+        lastTime[i] = 0;
+        onum[i] = 0;
+        jobDone[i] = 0;
+        last[i] = 0;
+        for (j = 0; j < MAX_NUM; j++)
+        {
+            start[i][j] = end[i][j] = 0;
+            blocks[i][j].start = blocks[i][j].end = blocks[i][j].jobRec = blocks[i][j].opeRec = 0;
+            oend[i][j] = ostart[i][j] = 0;
+        }
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        int num = jobDone[seq[i]];
+        int mac_1 = jobs[seq[i]].mac[num];
+        jobDone[seq[i]]++;
+        insert(seq[i], num);
+    }
+
+    for (i = 1; i <= macNum; i++)
+    {
+        printf("M%d", i - 1);
+        for (j = 0; j < onum[i]; j++)
+        {
+            if (blocks[i][j].start == blocks[i][j].end)
+                continue;
+            printf(" (%d,%d-%d,%d)", blocks[i][j].start, blocks[i][j].jobRec, blocks[i][j].opeRec, blocks[i][j].end);
+        }
+        printf("\n");
+    }
+}
+
+void outputFile(int n, int *seq, FILE *fPtr)
+{
     int i, j, k;
 
     for (i = 0; i < MAX_NUM; i++)
@@ -80,21 +208,24 @@ void output(int n, int *seq)
 
     for (i = 1; i <= macNum; i++)
     {
-        printf("M%d", i);
+        fprintf(fPtr, "M%d", i - 1);
         for (j = 0; j < onum[i]; j++)
         {
             if (blocks[i][j].start == blocks[i][j].end)
                 continue;
-            printf(" (%d,%d-%d,%d)", blocks[i][j].start, blocks[i][j].jobRec + 1, blocks[i][j].opeRec + 1, blocks[i][j].end);
+            fprintf(fPtr, " (%d,%d-%d,%d)", blocks[i][j].start, blocks[i][j].jobRec, blocks[i][j].opeRec, blocks[i][j].end);
         }
-        printf("\n");
+        fprintf(fPtr, "\r\n");
     }
 }
+
+
 
 void printUsage()
 {
     printf("Usage:\n(optional)-f <data_filepath>\tread data from the file\n");
-    printf("(optional)-C <config_file_path>\t read options from the config file\n");
+    printf("(optional)-C <config_file_path>\tread options from the config file\n");
+    printf("(optional)-o <output_file>\tprint the result into a file instead of console\n");
     printf("OR:\n-g <int>\tthe gap of the population\n");
     printf("-m <double>\treproductive ratio,the number of units which can reproduce is <ALL>/<this_ratio>\n");
     printf("-i <int>\tthe number of initial population\n");

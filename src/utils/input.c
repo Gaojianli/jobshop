@@ -1,3 +1,12 @@
+/*
+@file:input.c 
+@author:Xinyu Yao
+@version:1.4
+@date:23/5/18
+@description:
+    The implement of the input, including two ways
+*/
+
 #include "../../include/jobshop.h"
 void input_console()
 {
